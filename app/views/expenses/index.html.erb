@@ -1,0 +1,19 @@
+<h1>Welcome to EMS Dashboard</h1>
+
+<div style="margin-bottom: 32px;">
+  <h2>Recent Expenses</h2>
+  <ul>
+    <% @expenses.each do |expense| %>
+      <li><strong><%= expense[:title] %></strong>: ₹<%= expense[:amount] %> on <%= expense[:date] %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h2>Reports</h2>
+  <ul>
+    <% @reports.each do |report| %>
+      <li><strong><%= report[:name] %></strong> - <%= report[:status] %></li>
+    <% end %>
+  </ul>
+</div>

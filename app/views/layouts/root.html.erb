@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>EMS — Expense Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+    <style>
+      body { font-family: Arial, sans-serif; background: #f7f8fa; margin: 0; }
+  header { background: #2d3748; color: #fff; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+      .hero { text-align: center; margin: 32px 0 16px 0; }
+      .hero-copy { font-size: 1.2rem; color: #4a5568; margin-bottom: 16px; }
+      .features { display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; }
+      .feature { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #e2e8f0; padding: 16px 24px; font-weight: 500; color: #2d3748; }
+      .auth-card { background: #fff; max-width: 400px; margin: 0 auto 32px auto; border-radius: 12px; box-shadow: 0 2px 16px #cbd5e1; padding: 32px 24px; }
+      .tabs { display: flex; justify-content: center; gap: 16px; margin-bottom: 24px; }
+      .tab { padding: 8px 24px; border-radius: 6px; background: #edf2f7; cursor: pointer; font-weight: 500; }
+      .tab.active { background: #2b6cb0; color: #fff; }
+      .form-group { margin-bottom: 18px; }
+      label { display: block; margin-bottom: 6px; color: #4a5568; font-size: 0.95rem; }
+      input { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem; }
+  .continue-btn { display: block; margin: 24px auto 0 auto; width: 80%; background: #2b6cb0; color: #fff; border: none; border-radius: 6px; padding: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+  footer { background: #2d3748; color: #fff; text-align: center; padding: 18px 0; width: 100%; font-size: 0.95rem; position: relative; margin-top: 32px; }
+      .footer-links { margin-bottom: 8px; }
+      .footer-links a { color: #90cdf4; margin: 0 8px; text-decoration: none; }
+    </style>
+    <script>
+      function switchTab(tab) {
+        document.getElementById('email-tab').classList.remove('active');
+        document.getElementById('mobile-tab').classList.remove('active');
+        document.getElementById(tab + '-tab').classList.add('active');
+        document.getElementById('email-form').style.display = tab === 'email' ? 'block' : 'none';
+        document.getElementById('mobile-form').style.display = tab === 'mobile' ? 'block' : 'none';
+      }
+    </script>
+  </head>
+  <body>
+    <header style="background: #2d3748; color: #fff; padding: 24px 0; display: flex; align-items: center; justify-content: space-between;">
+      <div style="font-size: 2rem; font-weight: bold;">EMS — Expense Management System</div>
+      <nav style="margin-right: 20px; display: flex; align-items: center; gap: 16px;">
+  <%= link_to 'Home', root_path, style: 'color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;' %>
+  <a href="#" style="color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;">About</a>
+  <a href="#" style="color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Contact</a>
+  <a href="#" style="color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Terms of Service</a>
+        <% if user_signed_in? %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete, form_class: 'logout-form', style: 'color: #fff; background: #e53e3e; border-radius: 6px; padding: 8px 18px; font-weight: bold; text-decoration: none; margin-left: 16px;' %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path, style: 'color: #fff; background: #2b6cb0; border-radius: 6px; padding: 8px 18px; font-weight: bold; text-decoration: none; margin-left: 16px;' %>
+          <%= link_to 'Sign Up', new_user_registration_path, style: 'color: #fff; background: #38a169; border-radius: 2px; padding: 8px 18px; font-weight: bold; text-decoration: none; margin-left: 8px;' %>
+        <% end %>
+      </nav>
+    </header>
+    <div class="hero" style="text-align:center; margin: 48px 0 32px 0;">
+      <div class="hero-copy" style="font-size: 1.3rem; color: #4a5568; margin-bottom: 24px;">
+        <strong>Mission:</strong> Empower organizations to manage expenses efficiently.<br>
+        <strong>Vision:</strong> Seamless, smart, and secure expense management for all.
+      </div>
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Expense Management" style="max-width: 420px; border-radius: 16px; box-shadow: 0 2px 16px #cbd5e1; margin-bottom: 24px;">
+    </div>
+    <footer>
+      &copy; 2025 EMS. All rights reserved.
+    </footer>
+  </body>
+</html>
