@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>EMS — Expense Management System</title>
+  <title>EMS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
     <style>
-      body { font-family: Arial, sans-serif; background: #f7f8fa; margin: 0; }
+      body { font-family: Arial, sans-serif; background: #f7f8fa; margin: 0; padding-bottom: 80px; }
   header { background: #2d3748; color: #fff; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
       .hero { text-align: center; margin: 32px 0 16px 0; }
       .hero-copy { font-size: 1.2rem; color: #4a5568; margin-bottom: 16px; }
@@ -35,12 +35,10 @@
   </head>
   <body>
     <header style="background: #2d3748; color: #fff; padding: 24px 0; display: flex; align-items: center; justify-content: space-between;">
-      <div style="font-size: 2rem; font-weight: bold;">EMS — Expense Management System</div>
+      <div style="font-size: 2rem; font-weight: bold;">EMS</div>
       <nav style="margin-right: 20px; display: flex; align-items: center; gap: 16px;">
   <%= link_to 'Home', root_path, style: 'color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;' %>
   <a href="#" style="color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;">About</a>
-  <a href="#" style="color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Contact</a>
-  <a href="#" style="color: #90cdf4; text-decoration: none; font-size: 1.1rem; font-weight: 500;">Terms of Service</a>
         <% if user_signed_in? %>
           <%= button_to 'Logout', destroy_user_session_path, method: :delete, form_class: 'logout-form', style: 'color: #fff; background: #e53e3e; border-radius: 6px; padding: 8px 18px; font-weight: bold; text-decoration: none; margin-left: 16px;' %>
         <% else %>
@@ -54,10 +52,7 @@
         <strong>Mission:</strong> Empower organizations to manage expenses efficiently.<br>
         <strong>Vision:</strong> Seamless, smart, and secure expense management for all.
       </div>
-      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Expense Management" style="max-width: 420px; border-radius: 16px; box-shadow: 0 2px 16px #cbd5e1; margin-bottom: 24px;">
     </div>
-    <footer>
-      &copy; 2025 EMS. All rights reserved.
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
