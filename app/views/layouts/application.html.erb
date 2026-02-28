@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ap</title>
+    <title>SPEAK</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,7 +11,7 @@
 
   <body>
     <div class="ems-header">
-      <div class="ems-title">EMS</div>
+      <div class="ems-title">SPEAK</div>
       <nav class="ems-nav">
         <%= link_to "Home", root_path %>
         <a href="#">About</a>
@@ -20,5 +20,6 @@
       </nav>
     </div>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

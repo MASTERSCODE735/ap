@@ -1,7 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
-  skip_before_action :verify_authenticity_token, only: [:send_otp]
+  skip_before_action :verify_authenticity_token, only: [:send_otp,:create]
   def create
     user = User.find_by(email: params[:user][:email])
+    binding.pry
     if user && user.valid_password?(params[:user][:password])
       # Standard Devise login
       sign_in(user)
