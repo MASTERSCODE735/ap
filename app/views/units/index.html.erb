@@ -1,0 +1,11 @@
+<h1>Units</h1>
+<ul class="unit-list">
+	<% @units.each do |unit| %>
+		<li class="unit-item">
+			<h2><%= link_to unit.title, unit_path(unit) %></h2>
+			<% if unit.description.present? %>
+				<p class="unit-desc"><%= truncate(unit.description, length: 200) %></p>
+			<% end %>
+		</li>
+	<% end %>
+</ul>

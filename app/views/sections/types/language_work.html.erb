@@ -1,0 +1,22 @@
+<div class="section-page language-work">
+  <h1><%= @section.title %></h1>
+  <p class="instructions"><%= @section.instructions %></p>
+
+  <% if @phrases.any? %>
+    <h3>Expressions</h3>
+    <ul class="phrase-list">
+      <% @phrases.each do |phrase| %>
+        <li><span class="phrase-speaker"><%= phrase.speaker %>:</span> <%= phrase.text %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if @activities.any? %>
+    <h3>Activities</h3>
+    <ul class="activity-list">
+      <% @activities.each do |activity| %>
+        <li><%= link_to activity.title, unit_section_activity_path(@unit, @section, activity), class: 'activity-link' %> — <%= activity.activity_type.humanize %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

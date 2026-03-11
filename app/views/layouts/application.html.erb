@@ -10,16 +10,28 @@
   </head>
 
   <body>
-    <div class="ems-header">
-      <div class="ems-title">SPEAK</div>
-      <nav class="ems-nav">
-        <%= link_to "Home", root_path %>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Terms of Service</a>
-      </nav>
+    <div class="page-container">
+      <header class="site-header">
+        <div class="site-title"><%= link_to 'SPEAK', root_path, class: 'site-title-link' %></div>
+        <nav class="site-nav">
+          <% if user_signed_in? %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+            <% if Devise.mappings[:user].registerable? %>
+              <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+            <% end %>
+          <% end %>
+        </nav>
+      </header>
+
+      <main class="site-main">
+        <div class="content-wrap">
+          <%= yield %>
+        </div>
+      </main>
+
+      <%= render 'layouts/footer' %>
     </div>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
   </body>
 </html>

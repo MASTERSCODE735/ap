@@ -1,0 +1,26 @@
+<div class="section-page listen-repeat">
+  <div class="section-header">
+    <h2><%= @section.title %></h2>
+    <p class="instructions"><%= @section.instructions %></p>
+  </div>
+
+  <div class="phrases-list">
+    <% @phrases.each do |phrase| %>
+      <div class="phrase-card" data-controller="audio-player">
+        <div class="phrase-speakers">
+          <% if phrase.speaker.present? %>
+            <span class="speaker-label"><%= phrase.speaker %>:</span>
+          <% end %>
+          <p class="phrase-text"><%= phrase.text %></p>
+        </div>
+
+        <button class="audio-btn"
+                data-audio-player-target="button"
+                data-action="click->audio-player#play"
+                data-url="/units/<%= @unit.id %>/sections/<%= @section.id %>/phrases/<%= phrase.id %>/audio">
+          🔊 Listen
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>

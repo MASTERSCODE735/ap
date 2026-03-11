@@ -1,0 +1,23 @@
+<div class="section-page dialogue">
+  <div class="section-header">
+    <h2><%= @section.title %></h2>
+    <% if @section.context.present? %>
+      <p class="dialogue-context"><em><%= @section.context %></em></p>
+    <% end %>
+  </div>
+
+  <div class="dialogue-lines">
+    <% @phrases.each do |phrase| %>
+      <div class="dialogue-line <%= phrase.speaker&.downcase %>">
+        <span class="speaker"><%= phrase.speaker %></span>
+        <p class="line-text"><%= phrase.text %></p>
+        <button class="audio-btn"
+                data-controller="audio-player"
+                data-action="click->audio-player#play"
+                data-url="/units/<%= @unit.id %>/sections/<%= @section.id %>/phrases/<%= phrase.id %>/audio">
+          🔊
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>

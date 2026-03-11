@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  trackable: one
+  trackable_type: Trackable
+  completed_at: 2026-02-28 11:19:06
+  score: 1
+
+two:
+  user: two
+  trackable: two
+  trackable_type: Trackable
+  completed_at: 2026-02-28 11:19:06
+  score: 1

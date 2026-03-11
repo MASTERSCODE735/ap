@@ -1,0 +1,10 @@
+<div class="auth-card">
+  <h2 class="auth-title"><%= local_assigns[:title] || "Auth" %></h2>
+  <div class="auth-body">
+  <% binding.pry %>
+    <%= capture(&block) if block_given? %>
+  </div>
+  <div class="auth-links">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<h1><%= @activity.title %></h1>
+<p class="instructions"><%= @activity.instructions %></p>
+
+<ul class="activity-items">
+  <% @activity.activity_items.each do |item| %>
+    <li class="activity-item" data-item-id="<%= item.id %>">
+      <div class="prompt"><%= item.prompt %></div>
+      <div class="answer" style="display:none;"><%= item.answer %></div>
+      <button class="reveal-btn" type="button">Show Answer</button>
+    </li>
+  <% end %>
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.reveal-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var li = btn.closest('.activity-item');
+      var ans = li.querySelector('.answer');
+      if(ans.style.display === 'none'){ ans.style.display='block'; btn.textContent='Hide Answer'; }
+      else { ans.style.display='none'; btn.textContent='Show Answer'; }
+    });
+  });
+});
+</script>

@@ -1,0 +1,15 @@
+<h1><%= @unit.title %></h1>
+<p class="unit-desc"><%= @unit.description %></p>
+
+<h3>Sections</h3>
+<ul class="section-list">
+  <% @sections.each do |section| %>
+    <li class="section-item">
+      <strong><%= link_to section.title, unit_section_path(@unit, section) %></strong>
+      <div class="section-meta"><%= section.section_type.humanize %></div>
+      <% if section.instructions.present? %>
+        <p class="section-instructions"><%= section.instructions %></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

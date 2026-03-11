@@ -1,0 +1,10 @@
+<div class="section-page warm-up">
+  <h1><%= @section.title %></h1>
+  <p class="instructions"><%= @section.instructions %></p>
+
+  <ol class="phrase-list">
+    <% @phrases.each do |phrase| %>
+      <li class="phrase-item"><span class="phrase-speaker"><%= phrase.speaker %>:</span> <%= phrase.text %></li>
+    <% end %>
+  </ol>
+</div>

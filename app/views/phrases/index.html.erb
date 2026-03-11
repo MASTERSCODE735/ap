@@ -1,0 +1,18 @@
+<h1><%= @section.title %> — Phrases</h1>
+<p class="instructions"><%= @section.instructions %></p>
+
+<ol class="phrase-list">
+  <% @phrases.each do |phrase| %>
+    <li class="phrase-item">
+      <span class="phrase-speaker"><%= phrase.speaker %>:</span>
+      <span class="phrase-text"><%= phrase.text %></span>
+      <% if phrase.audio.attached? %>
+        <div class="audio-player"><%= audio_tag url_for(phrase.audio), controls: true %></div>
+      <% else %>
+        <button type="button" class="play-btn" data-phrase-id="<%= phrase.id %>">Play</button>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+<h1>Phrases#index</h1>
+<p>Find me in app/views/phrases/index.html.erb</p>
